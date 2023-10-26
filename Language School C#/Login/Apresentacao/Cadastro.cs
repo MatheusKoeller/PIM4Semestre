@@ -168,6 +168,7 @@ namespace Login.Apresentacao
         private void LimparCampos()
         {
             // Limpe os campos da interface do usuário.
+            txtColaborador.Text = string.Empty;
             txtNome.Text = string.Empty;
             mskCpf.Text = string.Empty;
             mskRG.Text = string.Empty;
@@ -179,7 +180,7 @@ namespace Login.Apresentacao
             txtUsuario.Text = string.Empty;
             txtSenha.Text = string.Empty;
             txtEmail.Text = string.Empty;
-            ccbIdcargo.Text = string.Empty;
+            ccbIdcargo.Text = "Selecione";
             mskNascimento.Text = string.Empty;
             ccbStatus.Text = "Ativo";
         }
@@ -216,6 +217,8 @@ namespace Login.Apresentacao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            //Botão Limpar campos
+            txtColaborador.Text = string.Empty;
             txtNome.Text = string.Empty;
             mskCpf.Text = string.Empty;
             mskRG.Text = string.Empty;
@@ -227,7 +230,7 @@ namespace Login.Apresentacao
             txtUsuario.Text = string.Empty;
             txtSenha.Text = string.Empty;
             txtEmail.Text = string.Empty;
-            ccbIdcargo.Text = string.Empty;
+            ccbIdcargo.Text = "Selecione";
             mskNascimento.Text = string.Empty;
             ccbStatus.Text = "Ativo";
 
