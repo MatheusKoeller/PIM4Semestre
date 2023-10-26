@@ -1,4 +1,9 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Language School C#",
+    "\\Language School C#\\Login"
+  ],
+  "SelectedNode": "\\Language School C#\\Login\\Login.sln",
   "PreviewInSolutionExplorer": false
 }
