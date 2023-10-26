@@ -32,7 +32,6 @@
             this.lblMenu = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pontoEletrônicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,7 +47,6 @@
             this.lblMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
             this.pontoEletrônicoToolStripMenuItem,
-            this.funcionariosToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
             this.cadastrarToolStripMenuItem});
             this.lblMenu.Location = new System.Drawing.Point(0, 0);
@@ -69,18 +67,14 @@
             this.pontoEletrônicoToolStripMenuItem.Name = "pontoEletrônicoToolStripMenuItem";
             this.pontoEletrônicoToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.pontoEletrônicoToolStripMenuItem.Text = "Ponto Eletrônico";
-            // 
-            // funcionariosToolStripMenuItem
-            // 
-            this.funcionariosToolStripMenuItem.Name = "funcionariosToolStripMenuItem";
-            this.funcionariosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.funcionariosToolStripMenuItem.Text = "Funcionários";
+            this.pontoEletrônicoToolStripMenuItem.Click += new System.EventHandler(this.pontoEletrônicoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
             // cadastrarToolStripMenuItem
             // 
@@ -153,6 +147,5 @@
         private System.Windows.Forms.MenuStrip lblMenu;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.Button btnSairMenu;
-        private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
     }
 }

@@ -366,7 +366,7 @@
             this.ccbStatus.Items.AddRange(new object[] {
             "Ativo",
             "Desativado"});
-            this.ccbStatus.Location = new System.Drawing.Point(163, 420);
+            this.ccbStatus.Location = new System.Drawing.Point(134, 422);
             this.ccbStatus.Name = "ccbStatus";
             this.ccbStatus.Size = new System.Drawing.Size(71, 23);
             this.ccbStatus.TabIndex = 7;
@@ -416,9 +416,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(70, 425);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 15);
+            this.label14.Size = new System.Drawing.Size(51, 15);
             this.label14.TabIndex = 1;
-            this.label14.Text = "Status";
+            this.label14.Text = "Status:";
             // 
             // label15
             // 
@@ -494,6 +494,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro Funcionário";
             this.Load += new System.EventHandler(this.Cadastro_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

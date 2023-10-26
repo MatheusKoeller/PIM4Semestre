@@ -43,6 +43,8 @@
             this.chbox_professores = new System.Windows.Forms.CheckBox();
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_imprimir = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_pesquisa
@@ -191,6 +193,7 @@
             this.btn_sair.TabIndex = 23;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // btn_imprimir
             // 
@@ -202,12 +205,21 @@
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(83, 122);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(545, 263);
+            this.dataGridView1.TabIndex = 24;
+            // 
             // Pagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.btn_sair);
             this.Controls.Add(this.chbox_rh);
@@ -224,8 +236,9 @@
             this.Controls.Add(this.chbox_nome);
             this.Controls.Add(this.lbl_pesquisa);
             this.Name = "Pagamento";
-            this.Text = "Form2";
+            this.Text = "Folha de Pagamento";
             this.Load += new System.EventHandler(this.Pagamento_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +261,6 @@
         private System.Windows.Forms.CheckBox chbox_professores;
         private System.Windows.Forms.Button btn_sair;
         private System.Windows.Forms.Button btn_imprimir;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

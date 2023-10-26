@@ -16,5 +16,13 @@ namespace Login.Apresentacao
         {
             InitializeComponent();
         }
+
+        private void btn_sair_Click(object sender, EventArgs e)
+        {
+            Close();
+            BemVindo bv = new BemVindo();
+            bv.Show();
+            this.Hide();
+        }
     }
 }

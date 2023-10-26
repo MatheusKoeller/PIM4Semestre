@@ -175,6 +175,7 @@
             this.btn_sair.TabIndex = 10;
             this.btn_sair.Text = "Sair";
             this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // Ponto
             // 
@@ -196,7 +197,6 @@
             this.Controls.Add(this.chbox_cpf);
             this.Controls.Add(this.chbox_nome);
             this.Controls.Add(this.lbl_pesquisar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ponto";
             this.Text = "Ponto_eletronico";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

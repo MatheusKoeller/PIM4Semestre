@@ -19,7 +19,9 @@ namespace Login.Apresentacao
 
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Pagamento pagamento = new Pagamento();
+            pagamento.Show();
+            this.Hide();
         }
 
         private void agendasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,6 +49,20 @@ namespace Login.Apresentacao
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Relatório relatório = new Relatório();
+            relatório.Show();
+            this.Hide();
+        }
+
+        private void pontoEletrônicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ponto ponto = new Ponto();
+            ponto.Show();
+            this.Hide();
         }
     }
 }
