@@ -172,15 +172,16 @@ namespace Login.Apresentacao
             mskCpf.Text = string.Empty;
             mskRG.Text = string.Empty;
             mskTelefone.Text = string.Empty;
-            cbbSexo.Text = string.Empty;
+            cbbSexo.Text = "sexo";
             txtNacionalidade.Text = string.Empty;
+            maskAdimissao.Text= string.Empty;
             txtEndereco.Text = string.Empty;
             txtUsuario.Text = string.Empty;
             txtSenha.Text = string.Empty;
             txtEmail.Text = string.Empty;
             ccbIdcargo.Text = string.Empty;
             mskNascimento.Text = string.Empty;
-            ccbStatus.Text = string.Empty;
+            ccbStatus.Text = "Ativo";
         }
 
 
@@ -215,16 +216,20 @@ namespace Login.Apresentacao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            txtNome.Clear();
-            txtEmail.Clear();
-            txtEndereco.Clear();
-            mskCpf.Clear();
-            mskNascimento.Clear();
-            mskRG.Clear();
-            txtSenha.Clear();
-            txtSenha.Clear();
-            txtUsuario.Clear();
-            mskTelefone.Clear();
+            txtNome.Text = string.Empty;
+            mskCpf.Text = string.Empty;
+            mskRG.Text = string.Empty;
+            mskTelefone.Text = string.Empty;
+            cbbSexo.Text = "sexo";
+            txtNacionalidade.Text = string.Empty;
+            maskAdimissao.Text = string.Empty;
+            txtEndereco.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
+            txtSenha.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            ccbIdcargo.Text = string.Empty;
+            mskNascimento.Text = string.Empty;
+            ccbStatus.Text = "Ativo";
 
 
         }
