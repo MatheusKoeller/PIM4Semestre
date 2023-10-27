@@ -217,6 +217,7 @@
     <Compile Include="Apresentacao\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\HoleriteDAO.cs" />
     <Compile Include="DAL\conexao.cs" />
     <Compile Include="DAL\FuncionarioDAO.cs" />
     <Compile Include="DAL\LoginDao.cs" />
@@ -225,6 +226,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language_SchoolDataSet_funcionarios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Holerite.cs" />
     <Compile Include="Modelo\Controle.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Program.cs" />
