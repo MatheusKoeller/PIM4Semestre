@@ -31,7 +31,7 @@
             System.Windows.Forms.Button btnPesquisarIdColaborador;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagamento));
             this.lbl_pesquisa = new System.Windows.Forms.Label();
-            this.txtbox_pesquisa = new System.Windows.Forms.TextBox();
+            this.txtIdColaborador = new System.Windows.Forms.TextBox();
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.dtgHolerite = new System.Windows.Forms.DataGridView();
@@ -40,6 +40,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgHolerite)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnPesquisarIdColaborador
+            // 
+            btnPesquisarIdColaborador.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            btnPesquisarIdColaborador.CausesValidation = false;
+            btnPesquisarIdColaborador.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnPesquisarIdColaborador.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisarIdColaborador.Image")));
+            btnPesquisarIdColaborador.Location = new System.Drawing.Point(534, 22);
+            btnPesquisarIdColaborador.Margin = new System.Windows.Forms.Padding(0);
+            btnPesquisarIdColaborador.Name = "btnPesquisarIdColaborador";
+            btnPesquisarIdColaborador.Size = new System.Drawing.Size(106, 30);
+            btnPesquisarIdColaborador.TabIndex = 25;
+            btnPesquisarIdColaborador.UseVisualStyleBackColor = false;
+            btnPesquisarIdColaborador.Click += new System.EventHandler(this.btnPesquisarIdColaborador_Click);
             // 
             // lbl_pesquisa
             // 
@@ -51,12 +65,12 @@
             this.lbl_pesquisa.TabIndex = 0;
             this.lbl_pesquisa.Text = "ID Funcionario";
             // 
-            // txtbox_pesquisa
+            // txtIdColaborador
             // 
-            this.txtbox_pesquisa.Location = new System.Drawing.Point(183, 22);
-            this.txtbox_pesquisa.Name = "txtbox_pesquisa";
-            this.txtbox_pesquisa.Size = new System.Drawing.Size(190, 26);
-            this.txtbox_pesquisa.TabIndex = 2;
+            this.txtIdColaborador.Location = new System.Drawing.Point(183, 22);
+            this.txtIdColaborador.Name = "txtIdColaborador";
+            this.txtIdColaborador.Size = new System.Drawing.Size(190, 26);
+            this.txtIdColaborador.TabIndex = 2;
             // 
             // btn_sair
             // 
@@ -82,28 +96,16 @@
             // dtgHolerite
             // 
             this.dtgHolerite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgHolerite.Location = new System.Drawing.Point(122, 122);
+            this.dtgHolerite.Location = new System.Drawing.Point(27, 122);
             this.dtgHolerite.Name = "dtgHolerite";
-            this.dtgHolerite.Size = new System.Drawing.Size(545, 263);
+            this.dtgHolerite.Size = new System.Drawing.Size(735, 263);
             this.dtgHolerite.TabIndex = 24;
-            // 
-            // btnPesquisarIdColaborador
-            // 
-            btnPesquisarIdColaborador.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            btnPesquisarIdColaborador.CausesValidation = false;
-            btnPesquisarIdColaborador.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnPesquisarIdColaborador.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisarIdColaborador.Image")));
-            btnPesquisarIdColaborador.Location = new System.Drawing.Point(534, 22);
-            btnPesquisarIdColaborador.Margin = new System.Windows.Forms.Padding(0);
-            btnPesquisarIdColaborador.Name = "btnPesquisarIdColaborador";
-            btnPesquisarIdColaborador.Size = new System.Drawing.Size(106, 30);
-            btnPesquisarIdColaborador.TabIndex = 25;
-            btnPesquisarIdColaborador.UseVisualStyleBackColor = false;
+            this.dtgHolerite.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgHolerite_CellContentClick);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(btnPesquisarIdColaborador);
-            this.groupBox1.Controls.Add(this.txtbox_pesquisa);
+            this.groupBox1.Controls.Add(this.txtIdColaborador);
             this.groupBox1.Controls.Add(this.lbl_pesquisa);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(27, 34);
@@ -136,7 +138,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_pesquisa;
-        private System.Windows.Forms.TextBox txtbox_pesquisa;
+        private System.Windows.Forms.TextBox txtIdColaborador;
         private System.Windows.Forms.Button btn_sair;
         private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.DataGridView dtgHolerite;
