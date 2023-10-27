@@ -387,5 +387,10 @@ namespace Login.Apresentacao
         {
 
         }
+
+        private void ccbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

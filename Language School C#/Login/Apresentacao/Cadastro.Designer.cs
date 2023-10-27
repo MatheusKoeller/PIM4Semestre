@@ -371,6 +371,7 @@
             this.ccbStatus.Size = new System.Drawing.Size(71, 23);
             this.ccbStatus.TabIndex = 7;
             this.ccbStatus.Text = "Ativo";
+            this.ccbStatus.SelectedIndexChanged += new System.EventHandler(this.ccbStatus_SelectedIndexChanged);
             // 
             // ccbIdcargo
             // 
