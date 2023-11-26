@@ -268,7 +268,7 @@
             // 
             this.mskRG.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskRG.Location = new System.Drawing.Point(133, 331);
-            this.mskRG.Mask = "00.000.000-0";
+            this.mskRG.Mask = "00.000.000-?";
             this.mskRG.Name = "mskRG";
             this.mskRG.Size = new System.Drawing.Size(119, 21);
             this.mskRG.TabIndex = 6;
