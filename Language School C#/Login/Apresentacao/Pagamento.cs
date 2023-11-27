@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Login.Modelo;
 using Login.DAL;
-
+using System.Drawing.Printing;
 
 namespace Login.Apresentacao
 {
@@ -18,6 +18,7 @@ namespace Login.Apresentacao
     {
         private object holeriteTableAdapter;
         private object language_SchoolDataSet;
+        private int currentPageIndex = 0;
 
         public Pagamento()
         {
@@ -168,7 +169,87 @@ namespace Login.Apresentacao
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                currentPageIndex = 0;  // Reinicia o índice da página ao iniciar uma nova impressão
+                printDocument.Print();
+            }
+        }
+
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            bool hasMorePages = DataGridViewPrinter.PrintDataGridView(dtgHolerite, e, currentPageIndex);
+
+            if (hasMorePages)
+            {
+                currentPageIndex++;
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+                currentPageIndex = 0;  // Reinicia o índice da página ao concluir a impressão
+            }
+        }
+
+
+    }
+
+    public static class DataGridViewPrinter
+    {
+
+
+        public static bool PrintDataGridView(DataGridView dataGridView, PrintPageEventArgs e, int pageIndex)
+        {
+            float yPos = 0;
+            int count = 0;
+
+            // Ajuste a fonte conforme necessário
+            Font font = new Font("Arial", 10);
+
+            int rowsPerPage = (int)(e.MarginBounds.Height / font.GetHeight());
+
+            for (int i = pageIndex * rowsPerPage; i < dataGridView.Rows.Count; i++)
+            {
+                DataGridViewRow row = dataGridView.Rows[i];
+
+                if (count == 0)
+                {
+                    // Desenha os cabeçalhos das colunas
+                    foreach (DataGridViewColumn column in dataGridView.Columns)
+                    {
+                        e.Graphics.DrawString(column.HeaderText, font, Brushes.Black, new PointF(column.Displayed ? column.DisplayIndex * 100 : 0, yPos));
+                    }
+                    yPos += font.GetHeight();
+                }
+
+                // Desenha o conteúdo da célula
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Visible)
+                    {
+                        e.Graphics.DrawString(cell.FormattedValue.ToString(), font, Brushes.Black, new PointF(cell.ColumnIndex * 100, yPos));
+                    }
+                }
+
+                yPos += font.GetHeight();
+                count++;
+
+                if (yPos + font.GetHeight() > e.MarginBounds.Height)
+                {
+                    return true;  // Há mais páginas a serem impressas
+                }
+            }
+
+            return false;  // Não há mais páginas a serem impressas
         }
     }
+
 }
