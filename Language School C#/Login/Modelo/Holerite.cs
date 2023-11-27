@@ -24,6 +24,7 @@ public class Holerite
 
     public int MesRef { get; set; }
     public int AnoRef { get; set; }
+
     public Holerite() { }
 
     public Holerite( int funcionarioID, string nomeFuncionario, string nomeCargo, decimal valorHolerite, decimal beneficios, decimal descontos, decimal salarioBruto, decimal inss, int idCargo, int mesRef, int anoRef)

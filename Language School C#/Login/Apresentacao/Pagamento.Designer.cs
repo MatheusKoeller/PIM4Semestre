@@ -95,6 +95,7 @@
             this.btn_imprimir.TabIndex = 23;
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // dtgHolerite
             // 

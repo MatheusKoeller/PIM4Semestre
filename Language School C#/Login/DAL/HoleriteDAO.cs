@@ -21,9 +21,13 @@ public class HoleriteDAO
     {
         using (SqlConnection connection = conexao.conectar())
         {
-            string query = "SELECT F.ID, F.nome, C.nome_cargo AS NomeCargo, C.salario " +
-                            "FROM funcionarios AS F " +
-                            "INNER JOIN cargos AS C ON F.cargo = C.ID";
+            string query = "SELECT H.id_funcionario, F.nome, C.nome_cargo, " +
+                           "H.total_liquido, H.beneficios, H.descontos, " +
+                           "H.salario_bruto, H.inss, H.mes_ref, H.ano_ref, " +
+                           "H.id_cargo " +
+                           "FROM holerites AS H " +
+                           "INNER JOIN funcionarios AS F ON H.id_funcionario = F.ID " +
+                           "INNER JOIN cargos AS C ON H.id_cargo = C.ID";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -33,20 +37,19 @@ public class HoleriteDAO
                 {
                     while (reader.Read())
                     {
-                        Cargo cargo = new Cargo
-                        {
-                            Salario = reader.GetDecimal(3),
-                            NomeCargo = reader.GetString(2)
-                        };
-
-                        decimal valorHolerite = CalcularHolerite(cargo);
-
                         Holerite holerite = new Holerite
                         {
                             FuncionarioID = reader.GetInt32(0),
                             NomeFuncionario = reader.GetString(1),
-                            NomeCargo = cargo.NomeCargo,
-                            ValorHolerite = valorHolerite
+                            NomeCargo = reader.GetString(2),
+                            ValorHolerite = reader.GetDecimal(3),
+                            Beneficios = reader.GetDecimal(4),
+                            Descontos = reader.GetDecimal(5),
+                            SalarioBruto = reader.GetDecimal(6),
+                            Inss = reader.GetDecimal(7),
+                            MesRef = reader.GetInt32(8),
+                            AnoRef = reader.GetInt32(9),
+                            IDCargo = reader.GetInt32(10),
                         };
 
                         holerites.Add(holerite);
@@ -57,6 +60,9 @@ public class HoleriteDAO
             }
         }
     }
+
+
+
 
     public Holerite GerarHolerite(int funcionarioID, int mesRef, int anoRef)
     {

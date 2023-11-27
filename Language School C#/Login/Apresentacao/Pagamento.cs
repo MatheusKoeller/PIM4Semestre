@@ -22,23 +22,12 @@ namespace Login.Apresentacao
         public Pagamento()
         {
             InitializeComponent();
+
         }
 
         private void Pagamento_Load(object sender, EventArgs e)
         {
-            conexao minhaConexao = new conexao();
-            HoleriteDAO holeriteDAO = new HoleriteDAO(minhaConexao);
-
-            List<Holerite> holerites = holeriteDAO.ListarTodosHolerites();
-
-            if (holerites != null && holerites.Count > 0)
-            {
-                dtgHolerite.DataSource = holerites;
-            }
-            else
-            {
-                MessageBox.Show("Nenhum holerite encontrado.");
-            }
+            AtualizarDataGridView();
         }
         private void btn_sair_Click(object sender, EventArgs e)
         {
@@ -59,14 +48,11 @@ namespace Login.Apresentacao
             if (string.IsNullOrEmpty(idColaboradorText))
             {
                 // Se o campo de ID do colaborador estiver vazio, traga todos os holerites
-                List<Holerite> holerites = holeriteDAO.ListarTodosHolerites();
-                dtgHolerite.DataSource = holerites;
+                AtualizarDataGridView();
             }
             else
             {
                 int idColaborador = Convert.ToInt32(idColaboradorText);
-                int proximoIdHolerite = holeriteDAO.ObterProximoIdHolerite(); // Implemente esse método
-
 
                 Holerite holerite = holeriteDAO.GerarHolerite(idColaborador, GetMesRef(mes), ano);
 
@@ -135,6 +121,29 @@ namespace Login.Apresentacao
 
         // Restante do código...
 
+        private void AtualizarDataGridView()
+        {
+            conexao minhaConexao = new conexao();
+            HoleriteDAO holeriteDAO = new HoleriteDAO(minhaConexao);
+
+            List<Holerite> holerites = holeriteDAO.ListarTodosHolerites();
+
+            if (holerites != null && holerites.Count > 0)
+            {
+                dtgHolerite.DataSource = holerites;
+
+                // Remover a coluna "Cargo" (coluna 9, começando do índice 0)
+                if (dtgHolerite.Columns.Count > 9)
+                {
+                    dtgHolerite.Columns.RemoveAt(9);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhum holerite encontrado.");
+            }
+        }
+
 
         // Método auxiliar para obter o número do mês a partir do seu nome
         private int GetMesRef(string mes)
@@ -157,5 +166,9 @@ namespace Login.Apresentacao
             }
         }
 
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
