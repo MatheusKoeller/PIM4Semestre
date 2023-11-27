@@ -16,7 +16,8 @@ public class CargoDAO
     {
         try
         {
-            using (SqlConnection con = conexao.conectar())
+            conexao minhaConexao = new conexao();
+            using (SqlConnection con = minhaConexao.conectar())
             {
                 string query = "SELECT C.ID, C.nome_cargo, C.salario, C.carga_horaria " +
                                "FROM funcionarios AS F " +

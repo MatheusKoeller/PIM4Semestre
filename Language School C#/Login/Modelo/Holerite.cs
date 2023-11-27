@@ -15,24 +15,31 @@ public class Holerite
     public string NomeFuncionario { get; set; }
     public string NomeCargo { get; set; }
     public decimal ValorHolerite { get; set; }
+    public decimal Beneficios { get; set; }
+    public decimal Descontos { get; set; }
+    public decimal SalarioBruto { get; set; }
+    public decimal Inss { get; set; }
+    public int IDCargo { get; set; }
+    public Cargo Cargo { get; set; }
 
-    public Holerite() // Construtor padrão sem argumentos
-    {
-    }
+    public int MesRef { get; set; }
+    public int AnoRef { get; set; }
+    public Holerite() { }
 
-    public Holerite(int funcionarioID, string nomeFuncionario, string nomeCargo, decimal valorHolerite)
+    public Holerite( int funcionarioID, string nomeFuncionario, string nomeCargo, decimal valorHolerite, decimal beneficios, decimal descontos, decimal salarioBruto, decimal inss, int idCargo, int mesRef, int anoRef)
     {
+
         FuncionarioID = funcionarioID;
         NomeFuncionario = nomeFuncionario;
         NomeCargo = nomeCargo;
         ValorHolerite = valorHolerite;
-    }
-    private decimal CalcularHolerite(Cargo cargo)
-    {
-        // Implemente o cálculo do holerite com base nas informações do cargo.
-        // Adicione suas regras de cálculo aqui, como descontos, adicionais, etc.
-        // Exemplo de cálculo simples (salário bruto do cargo):
-        return cargo.Salario;
+        Beneficios = beneficios;
+        Descontos = descontos;
+        SalarioBruto = salarioBruto;
+        Inss = inss;
+        IDCargo = idCargo;
+        MesRef = mesRef;
+        AnoRef = anoRef;
     }
 }
 

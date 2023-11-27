@@ -36,6 +36,9 @@
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.dtgHolerite = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbxMes = new System.Windows.Forms.ComboBox();
+            this.txtAno = new System.Windows.Forms.TextBox();
             btnPesquisarIdColaborador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHolerite)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -115,12 +118,66 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(215, 409);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(185, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Salvar Holerites do Mes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbxMes
+            // 
+            this.cbxMes.AutoCompleteCustomSource.AddRange(new string[] {
+            "Janeiro",
+            "Fevereiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro"});
+            this.cbxMes.FormattingEnabled = true;
+            this.cbxMes.Items.AddRange(new object[] {
+            "Janeiro",
+            "Fevereiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro"});
+            this.cbxMes.Location = new System.Drawing.Point(406, 408);
+            this.cbxMes.Name = "cbxMes";
+            this.cbxMes.Size = new System.Drawing.Size(121, 21);
+            this.cbxMes.TabIndex = 28;
+            // 
+            // txtAno
+            // 
+            this.txtAno.Location = new System.Drawing.Point(533, 408);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(100, 20);
+            this.txtAno.TabIndex = 29;
+            // 
             // Pagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAno);
+            this.Controls.Add(this.cbxMes);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtgHolerite);
             this.Controls.Add(this.btn_imprimir);
@@ -132,6 +189,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -143,5 +201,8 @@
         private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.DataGridView dtgHolerite;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbxMes;
+        private System.Windows.Forms.TextBox txtAno;
     }
 }

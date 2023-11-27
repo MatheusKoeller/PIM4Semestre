@@ -9,11 +9,10 @@
     {
     }
 
-    public Cargo(int id, string nomeCargo, decimal salario, int? cargaHoraria)
+    public Cargo(int id, string nomeCargo, decimal salario)
     {
         ID = id;
         NomeCargo = nomeCargo;
         Salario = salario;
-        CargaHoraria = cargaHoraria;
     }
 }

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient; // Adicionando a diretiva necessária
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Login.Modelo;
-using Login.DAL; // Importe a classe HoleriteDAO
+using Login.DAL;
 
 
 namespace Login.Apresentacao
@@ -52,6 +53,8 @@ namespace Login.Apresentacao
             string idColaboradorText = txtIdColaborador.Text;
             conexao minhaConexao = new conexao();
             HoleriteDAO holeriteDAO = new HoleriteDAO(minhaConexao);
+            int ano = Convert.ToInt32(txtAno.Text);
+            string mes = cbxMes.Text;
 
             if (string.IsNullOrEmpty(idColaboradorText))
             {
@@ -62,8 +65,10 @@ namespace Login.Apresentacao
             else
             {
                 int idColaborador = Convert.ToInt32(idColaboradorText);
+                int proximoIdHolerite = holeriteDAO.ObterProximoIdHolerite(); // Implemente esse método
 
-                Holerite holerite = holeriteDAO.GerarHolerite(idColaborador);
+
+                Holerite holerite = holeriteDAO.GerarHolerite(idColaborador, GetMesRef(mes), ano);
 
                 if (holerite != null)
                 {
@@ -85,5 +90,72 @@ namespace Login.Apresentacao
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obter o ano e mês selecionados
+                int ano = Convert.ToInt32(txtAno.Text);
+                string mes = cbxMes.Text;
+
+                // Obter todos os funcionários do banco de dados
+                FuncionarioDAO funcionarioDAO = new FuncionarioDAO(new conexao());
+                List<Funcionario> funcionarios = funcionarioDAO.ListarTodosFuncionarios();
+
+                // Iniciar o DAO do Holerite
+                HoleriteDAO holeriteDAO = new HoleriteDAO(new conexao());
+
+                int proximoIdHolerite = holeriteDAO.ObterProximoIdHolerite(); // Implemente esse método
+                foreach (var funcionario in funcionarios)
+                {
+                    // Gerar o holerite para o funcionário no ano e mês especificados
+                    Holerite holerite = holeriteDAO.GerarHolerite(funcionario.ID, GetMesRef(mes), ano);
+
+                    if (holerite != null)
+                    {
+                        Console.WriteLine($"Holerite gerado para funcionário {funcionario.ID}");
+                        // Inserir o holerite na tabela de holerites
+                        holeriteDAO.InserirHolerite(holerite, GetMesRef(mes), ano, funcionario.ID);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Holerite não gerado para funcionário {funcionario.ID}");
+                    }
+                }
+
+
+                MessageBox.Show("Holerites gerados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Restante do código...
+
+
+        // Método auxiliar para obter o número do mês a partir do seu nome
+        private int GetMesRef(string mes)
+        {
+            switch (mes.ToLower())
+            {
+                case "janeiro": return 1;
+                case "fevereiro": return 2;
+                case "março": return 3;
+                case "abril": return 4;
+                case "maio": return 5;
+                case "junho": return 6;
+                case "julho": return 7;
+                case "agosto": return 8;
+                case "setembro": return 9;
+                case "outubro": return 10;
+                case "novembro": return 11;
+                case "dezembro": return 12;
+                default: throw new ArgumentException("Mês inválido", nameof(mes));
+            }
+        }
+
     }
 }
